@@ -5,4 +5,14 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>LOG330_TP1</name>
   <description>Maven Project for travis</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
 </project>
