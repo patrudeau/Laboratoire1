@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class TestCalculerSomme {
+public class TestCalculerDistance {
 	
 	private CSVReader reader = new CSVReader();
 	private MathPA math = new MathPA();
@@ -22,20 +22,25 @@ public class TestCalculerSomme {
 	
 	@Test
 	public void testResult() {
-		assertEquals(6389, math.calculerSomme(nombreListe),0);
+		assertEquals(205118.43, math.calculerDistance(nombreListe,0),0.1);
 	}
 	
 	@Test
 	public void testEmpty() {
-		nombreListe = reader.getNumberFromCSV("testVide.csv");
-		assertEquals(0, math.calculerSomme(nombreListe),0);
+	  try {
+			nombreListe = reader.getNumberFromCSV("testVide.csv");
+			math.calculerDistance(nombreListe,0);
+		    fail("Should throw exception");
+		  }catch(IndexOutOfBoundsException exception){
+		    assert(exception.getMessage().contains(""));
+		  }
 	}
 	
 	@Test
 	public void testAlphaException(){
 	  try {
 		nombreListe = reader.getNumberFromCSV("testAlpha.csv");
-	    math.calculerSomme(nombreListe);
+		math.calculerDistance(nombreListe,0);
 	    fail("Should throw exception");
 	  }catch(NumberFormatException exception){
 	    assert(exception.getMessage().contains(""));

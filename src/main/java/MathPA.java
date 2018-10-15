@@ -4,7 +4,7 @@ import java.util.List;
 public class MathPA {
 
 	public float calculerMoyenne(List<Float> nombreListe) {
-		return calculerSomme(nombreListe)/nombreListe.size();
+		return (nombreListe.size() > 0) ? calculerSomme(nombreListe)/nombreListe.size() : 0;
 	}
 	
 	public float calculerEcartType(List<Float> nombreListe) {

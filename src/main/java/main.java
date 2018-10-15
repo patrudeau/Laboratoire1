@@ -14,13 +14,13 @@ public class main {
 		for(float nombre : nombreListe) {
 			System.out.print(nombre + ", ");
 		}
-		
+		System.out.println("Somme : " + math.calculerSomme(nombreListe));
 		System.out.println("Moyenne : " + math.calculerMoyenne(nombreListe));
 		
 		System.out.println("Variance : " + math.calculerVariance(nombreListe));
 		
 		System.out.println("Écart type : " + math.calculerEcartType(nombreListe));
-		
+		System.out.println("Distance avec 0 : " + math.calculerDistance(nombreListe, 0));
 	}
 
 }

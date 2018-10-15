@@ -21,7 +21,7 @@ public class CSVReader {
 			ligne = breader.readLine();
 			
 			while(ligne != null) {
-				
+
 				nombre.add(Float.valueOf(ligne));
 				
 				ligne = breader.readLine();
