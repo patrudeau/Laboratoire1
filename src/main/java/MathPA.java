@@ -36,4 +36,29 @@ public class MathPA {
 		}
 		return somme/(nombreListe.size()-1);
 	}
+	public double calculerCorrelation(List<Float> nombreList) {
+		List<Float> x = new ArrayList<Float>();
+		List<Float> y = new ArrayList<Float>();		
+		int i = 0;
+		for(float nombre : nombreList) {
+			if(i%2 == 0) {
+				x.add(nombre);
+			}
+			else {
+				y.add(nombre);
+			}
+			i++;
+		}
+		float moyX = calculerMoyenne(x);
+		float moyY = calculerMoyenne(y);
+		float numerateur = 0;
+		float sommeDistanceX = 0;
+		float sommeDistanceY = 0;
+		for(int j = 0; j < x.size(); j++) {
+			numerateur += (x.get(j)-moyX)*(y.get(j)-moyY);
+			sommeDistanceX += calculerDistance(x,j);
+			sommeDistanceY += calculerDistance(y,j);
+		}
+		return numerateur/(Math.sqrt(sommeDistanceX)*Math.sqrt(sommeDistanceY));
+	}
 }

@@ -21,9 +21,12 @@ public class CSVReader {
 			ligne = breader.readLine();
 			
 			while(ligne != null) {
-
-				nombre.add(Float.valueOf(ligne));
+				String[] rowNumber = ligne.split("\\;");
 				
+				for(String number : rowNumber) {
+					
+					nombre.add(Float.valueOf(number.replace(",", ".")));
+				}
 				ligne = breader.readLine();
 			}
 		} 
