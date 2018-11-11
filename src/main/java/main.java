@@ -25,7 +25,13 @@ public class main {
 		nombreListe = reader.getNumberFromCSV("testTp2.csv");
 		
 		System.out.println("Corrélation : " + math.calculerCorrelation(nombreListe));
-		System.out.println("Corrélation au carrée : " + math.calculerCorrelation(nombreListe)*math.calculerCorrelation(nombreListe));
+		System.out.println("Corrélation au carrée : " + math.calculerCorrelation(nombreListe)*
+				math.calculerCorrelation(nombreListe));
+		
+		System.out.println("Cette section est faite avec le csv du tp3");
+		nombreListe = reader.getNumberFromCSV("testTp3.csv");
+		
+		System.out.println("Régression : " + math.calculerRegression(nombreListe));
 	}
 
 }

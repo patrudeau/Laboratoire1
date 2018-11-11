@@ -37,18 +37,8 @@ public class MathPA {
 		return somme/(nombreListe.size()-1);
 	}
 	public double calculerCorrelation(List<Float> nombreList) {
-		List<Float> x = new ArrayList<Float>();
-		List<Float> y = new ArrayList<Float>();		
-		int i = 0;
-		for(float nombre : nombreList) {
-			if(i%2 == 0) {
-				x.add(nombre);
-			}
-			else {
-				y.add(nombre);
-			}
-			i++;
-		}
+		List<Float> x = getColumn(nombreList, 0, 2);
+		List<Float> y = getColumn(nombreList, 1, 2);		
 		float moyX = calculerMoyenne(x);
 		float moyY = calculerMoyenne(y);
 		float numerateur = 0;
@@ -60,5 +50,39 @@ public class MathPA {
 			sommeDistanceY += calculerDistance(y,j);
 		}
 		return numerateur/(Math.sqrt(sommeDistanceX)*Math.sqrt(sommeDistanceY));
+	}
+	
+	public String calculerRegression(List<Float> nombreList) {
+		List<Float> x = getColumn(nombreList, 0, 2);
+		List<Float> y = getColumn(nombreList, 1, 2);	
+		float moyX = calculerMoyenne(x);
+		float moyY = calculerMoyenne(y);
+		float sommeXY = 0;
+		float sommeXX = 0;
+		for(int j = 0; j < x.size(); j++) {
+			sommeXY += x.get(j)*y.get(j);
+			sommeXX += x.get(j)*x.get(j);
+		}
+		float B1 = (sommeXY - x.size()*moyX*moyY)/(sommeXX-(x.size()*moyX*moyX));
+		float B0 = moyY - B1*moyX;
+		
+		return "" + B1 +"x + " + B0;
+	}
+	
+	/*
+	 * This method return a column base on the number of column in the List
+	 * --Note that the first column start with a 0--
+	 */
+	public List<Float> getColumn(List<Float> nombreList, int col, int nbCol){
+		
+		List<Float> column = new ArrayList<Float>();
+		int i = 0;
+		for(float nombre : nombreList) {
+			if(i%nbCol == col) {
+				column.add(nombre);
+			}
+			i++;
+		}
+		return column;
 	}
 }
