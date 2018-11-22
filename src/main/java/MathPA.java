@@ -85,4 +85,15 @@ public class MathPA {
 		}
 		return column;
 	}
+	
+	public String confirmCorrelation (double correl) {
+		String text;
+		if (correl > 0.5) { 
+			text = "Il existe une corrélation entre ces deux éléments";
+		}
+		else {
+			text = "Il n'existe pas de corrélation entre ces deux éléments";
+		}
+		return text;
+	}
 }
