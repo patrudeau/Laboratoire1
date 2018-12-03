@@ -42,8 +42,6 @@ public class CSVReader {
 	
 	public ArrayList<ArrayList<Float>> getListOfNumberFromCSV(File file){
 		ArrayList<ArrayList<Float>> listOfNumber = new ArrayList<ArrayList<Float>>();
-		
-		System.out.println(file.getPath());
 
 		try {
 			BufferedReader breader = new BufferedReader(new InputStreamReader(new FileInputStream(file.getPath()),"utf-8"));;
